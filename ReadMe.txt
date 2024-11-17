@@ -1,33 +1,3 @@
-[![development status | 7 - Inactive](https://img.shields.io/badge/Development_Status-7_--_Inactive-orange)](https://pypi.org/classifiers/)
-[![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
-![license](https://img.shields.io/github/license/PatchaIT/slcb-greetings)
-___
-<h1 align="center">
-(slcb) Greetings
-</h1>
-<p align="center">
-<sup>
-(On your Streamlabs Chatbot) Produces a sound and writes a greetings message when somebody sends his first message in chat, for current session.
-</sup>
-</p>
-
-## Table of Contents
-
-* [About the Project](#about-the-project)
-* [In Shorts](#in-shorts)
-* [Changelog](#changelog)
-* [Getting Started](#getting-started)
-  * [Prerequisites](#prerequisites)
-  * [Installation](#installation)
-* [Usage](#usage)
-* [Greetings Audio](#greetings-audio)
-  * [New Message Audio](#new-message-audio)
-* [TTS BOT Install And Settings](#tts-bot-install-and-settings)
-  * [TTS BOT Install](#tts-bot-install)
-  * [TTS BOT Settings](#tts-bot-settings)
-
-## About The Project
-
 Hi all,
  this script is mainly created for early streamers with low chat activity.
 
@@ -100,13 +70,13 @@ You can also personalize your sounds to play a different file, by editing
 Audio files have to be in `mp3` format.
 
 #### New Message Audio
-  <sup>(After First Message)</sup>
+  (After First Message)
 
 It works same identical way as greeing audio, except it's file path field
  is named `New message audio` and it's volume is `Volume new message audio`.
 
 ### TTS BOT Install And Settings
-  <sup>(Text To Speach Bot)</sup>
+  (Text To Speach Bot)
 
 Note 1: TSS Bot will automatically attempt to read the message writer's nickname.  
 Keep in mind that result will easily be more different than expected in most
