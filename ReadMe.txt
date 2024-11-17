@@ -17,9 +17,9 @@ Enjoy.
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.2.2
+- Version: 1.3
 - Description: Produces a sound and writes a greetings message when somebody sends his first message in chat, for current session. It can also reproduce another sound each time somebody write again in chat, or even read username with TTS. Anyway you can disable each sound. It could also just greet textually for first message in chat.
-- Changes: Now you can filter nicknames not to greet neither textually (aka: your own bots)
+- Changes: Now you can set a different sentence for VIP, subriscribers and moderators.
 - Services: Twitch, Mixer, Youtube
 - Overlays: Only TTS Bot
 - Made By: @Patcha_it
@@ -36,6 +36,8 @@ Enjoy.
   - Now TTS nick "black list filter" is case-insensitive
 - 2018/17/12 v1.2.2
   - Now you can filter nicknames not to greet neither textually (aka: your own bots)
+- 2019/04/07 v1.3
+  - Now you can set a different sentence for VIP, subriscribers and moderators.
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)
@@ -61,6 +63,16 @@ Follow this tutorial to prepare your Streamlabs Chatbot installation to accept s
 7. Click on the `Greetings` name to see the configuration pane.
 
 ## Usage
+
+### Vip, Subscriber, Moderator Message
+
+You can personalize that message distinguishing between moderators, VIPs
+ and subscribers.
+
+Note: priority levels are `moderator -> subscriber -> VIP -> everyone`.  
+ Which means if your moderator is also subscriber, he'll still have moderator
+ message; or if your subscriber is also VIP, he'll still have subscriber
+ message, and so on.
 
 ### Do Not Greet
   (Users not to greet)

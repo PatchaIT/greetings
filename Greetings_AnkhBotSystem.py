@@ -2,12 +2,12 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 1.2.2
+# Version: 1.3
 # Description: this script produces a sound and write a greetings message when somebody write for first time in chat, for current session. It can also reproduce another sound each time somebody write again in chat, or even read username with TTS. Anyway you can disable each sound. It could also just greet textually for first message in chat.
-# Change: Now you can filter nicknames not to greet neither textually (aka: your own bots)
+# Change: Now you can set a different sentence for VIP, subriscribers and moderators.
 # Services: Twitch, Mixer, Youtube
 # Overlays: Only TTS Bot
-# Update Date: 2018/17/12
+# Update Date: 2019/04/07
 #
 #---------------------------------------
 # CHANGELOG:
@@ -17,6 +17,7 @@
 # 2018/10/05 v1.2 - Possibility to use a TSS Bot to read user name
 # 2018/14/12 v1.2.1 - Now TTS nick "black list filter" is case-insensitive
 # 2018/17/12 v1.2.2 - Now you can filter nicknames not to greet neither textually (aka: your own bots)
+# 2019/04/07 v1.3 - Now you can set a different sentence for VIP, subriscribers and moderators.
 #
 #---------------------------------------
 
@@ -48,7 +49,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.2.2"
+Version = "1.3"
 
 
 #---------------------------------------
@@ -74,6 +75,10 @@ class Settings:
                 self.__dict__ = json.load(f, encoding='utf-8-sig') 
         else: #set variables if no settings file
             self.BaseResponse = "Hi {0}! HeyGuys"
+            self.VIPResponse = ""
+            self.SubResponse = ""
+            self.ModResponse = ""
+            self.InfoResponse= "Ok, I got it!"
             self.DoNotGreet = ""
             self.GreetWave = "Hi.mp3"
             self.GreetVolume = "100"
@@ -198,7 +203,15 @@ def Execute(data):
         if user != chanName:
             if user not in l_GreetedUsers and user not in l_DontGreet:
                 l_GreetedUsers.append(user)
-                Parent.SendStreamMessage(MySettings.BaseResponse.format(user))
+                if MySettings.ModResponse and Parent.HasPermission(data.User, "Moderator", ""):
+                    Parent.SendStreamMessage(MySettings.ModResponse.format(user))
+                elif MySettings.SubResponse and Parent.HasPermission(data.User, "Subscriber", ""):
+                    Parent.SendStreamMessage(MySettings.SubResponse.format(user))
+                elif MySettings.VIPResponse and Parent.HasPermission(data.User, "VIP Exclusive", ""):
+                    Parent.SendStreamMessage(MySettings.VIPResponse.format(user))
+                else:
+                    Parent.SendStreamMessage(MySettings.BaseResponse.format(user))
+
                 if not greet == "":
                     while not SoundPlayer(greet, greetVol):
                         continue
@@ -206,6 +219,7 @@ def Execute(data):
                         response = "https://warp.world/scripts/tts-message?streamer={0}&key={1}&viewer={2}&bar={3}&font={4}&sfont={5}&bfont={6}&gfont={7}&voice={8}&vol={9}&alert=false&message={10}".format(\
                             chanName, ttsBotKey, user, oFontBkgC, oFontC, MySettings.TTSOverlayFontSize, oFontBC, urllib.quote(cgi.escape(MySettings.TTSOverlayFont)), urllib.quote(cgi.escape(MySettings.TTSBotLanguage)), MySettings.TTSBotVolume, user)
                         response = Parent.GetRequest(response, {})
+
             else:
                 if not newMsg == "":
                     SoundPlayer(newMsg, newMsgVol)
