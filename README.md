@@ -22,11 +22,11 @@ Greetings
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Greetings Audio](#greetings-audio)
-  * [New Message Audio](#new-message-audio)
-* [TTS BOT Install And Settings](#tts-bot-install-and-settings)
-  * [TTS BOT Install](#tts-bot-install)
-  * [TTS BOT Settings](#tts-bot-settings)
+  * [Greetings Audio](#greetings-audio)
+    * [New Message Audio](#new-message-audio)
+  * [TTS BOT Install And Settings](#tts-bot-install-and-settings)
+    * [TTS BOT Install](#tts-bot-install)
+    * [TTS BOT Settings](#tts-bot-settings)
 
 ## About The Project
 
@@ -68,7 +68,7 @@ Enjoy.
   - Now TTS nick "black list filter" is case-insensitive
 
 PS:
-Thanks @Castorr91 for some fixes suggestion and sharing on Discord. ;)
+Thanks @Castorr91 for some fixes suggestion. ;)
 
 ## Getting Started
 
@@ -78,7 +78,7 @@ Have an installation of Streamlabs Chatbot, already logged in to your accounts.
 * [Download Streamlabs Chatbot](https://streamlabs.com/desktop-chatbot)
 
 Follow this tutorial to prepare your Streamlabs Chatbot installation to accept scripts.
-* [[Streamlabs Chatbot] Scripts Explained by Castorr91](https://www.youtube.com/watch?v=l3FBpY-0880&t=3s)
+* [[Streamlabs Chatbot] Scripts Explained by Castorr91](https://www.youtube.com/watch?v=l3FBpY-0880)
 
 ### Installation
 
