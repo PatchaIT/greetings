@@ -1,0 +1,169 @@
+﻿{
+    "output_file": "settings.json",
+    "BaseResponse": {
+        "type": "textbox",
+        "value": "Hi {0}! HeyGuys",
+        "label": "Greeting message",
+        "tooltip": "Greeting message",
+        "group": "General"
+    },
+    "GreetWave": {
+        "type": "textbox",
+        "value": "Hi.mp3",
+        "label": "Greeting audio",
+        "tooltip": "Greeting audio",
+        "group": "General"
+    },
+    "GreetVolume": {
+        "type": "slider",
+        "value": 100,
+        "min": 0,
+        "max": 100,
+        "ticks": 1,
+        "label": "Volume greeting audio",
+        "tooltip": "Volume to play greeting sound.",
+        "group": "General"
+    },
+    "MsgWave": {
+        "type": "textbox",
+        "value": "Page_Turn.mp3",
+        "label": "New message audio",
+        "tooltip": "Page_Turn.mp3",
+        "group": "General"
+    },
+    "MsgVolume": {
+        "type": "slider",
+        "value": 100,
+        "min": 0,
+        "max": 100,
+        "ticks": 1,
+        "label": "Volume new message audio",
+        "tooltip": "Volume to play new message sound.",
+        "group": "General"
+    },
+     "TTSBot": {
+        "type": "checkbox",
+        "value": false,
+        "label": "Turn ON TTS Bot",
+        "tooltip": "Do you wish a voice to read user's name.",
+        "group": "TTSBot"
+    },
+    "TTSBotVolume": {
+        "type": "slider",
+        "value": 100,
+        "min": 0,
+        "max": 100,
+        "ticks": 1,
+        "label": "Audio Volume",
+        "tooltip": "Voice's volume to read user's name.",
+        "group": "TTSBot"
+    },
+   "TTSBlackListedWords": {
+        "type": "textbox",
+        "value": "Nigger, Jew, Nazi, Nigga",
+        "label": "Black listed words",
+        "tooltip": "List of words you want to get filtered. Seperated through commas. Coupled through plus symbol.\r\nTTSBot will not read names containing those words.",
+        "group": "TTSBot"
+    },
+    "TTSBotLanguage": {
+        "type": "dropdown",
+        "label": "Bot Language",
+        "value": "US English Female",
+        "tooltip": "Which language should TTSBot interpretate?",
+        "items": [
+            "Chinese Female",
+            "Deutsch Female",
+            "Dutch Female",
+            "French Female",
+            "Italian Female",
+            "Japanese Female",
+            "Korean Female",
+            "Polish Female",
+            "Portuguese Female",
+            "Russian Female",
+            "Spanish Female",
+            "Swedish Female",
+            "Turkish Female",
+            "UK English Female",
+            "US English Female"
+        ],
+        "group": "TTSBot"
+    },
+   "TTSBotKey": {
+        "type": "textbox",
+        "value": "",
+        "label": "Generated Key",
+        "tooltip": "Write here TTS Bot Key you got from clicking button below.",
+        "group": "TTSBot User"
+    },
+   "TTSBotUser": {
+        "type": "textbox",
+        "value": "",
+        "label": "Custom user (optional)",
+        "tooltip": "Fill this if you wanna link TTSBot to a different user, then click button below.\r\nEmpty = default Channel Name",
+        "group": "TTSBot User"
+    },
+    "TTSWhisperNewKey": {
+        "type": "button",
+        "label": "Get Browser Source URL",
+        "tooltip": "Your bot will whisper you the BrowserSource URL. Be sure to use a different user as streamer Bot!",
+        "function": "GenerateAndWhisperTTSBotKey",
+        "wsevent": "",
+        "group": "TTSBot User"
+    },
+    "TTSOverlayFont": {
+        "type": "dropdown",
+        "label": "Overlay Google font",
+        "value": "Roboto",
+        "tooltip": "Which google font should be used?",
+        "items": [
+            "Roboto",
+            "Open Sans",
+            "Lato",
+            "Slabo 27px",
+            "Oswald",
+            "Source Sans Pro",
+            "Montserrat",
+            "Raleway",
+            "PT Sans",
+            "Lora",
+            "Noto Sans",
+            "Nunito Sans",
+            "Concert One",
+            "Prompt",
+            "Work Sans"
+        ],
+        "group": "TTSBot Overlay Style"
+    },
+    "TTSOverlayFontSize": {
+        "type": "slider",
+        "value": 32,
+        "min": 0,
+        "max": 100,
+        "ticks": 1,
+        "label": "Overlay font size",
+        "tooltip": "TTSBot overlay font size.",
+        "group": "TTSBot Overlay Style"
+    },
+	"TTSOverlayFontColor": {
+		"type": "colorpicker",
+		"label": "Overlay font color",
+		"value": "rgba(4,118,189,1)",
+		"tooltip": "TTSBot overlay font color.",
+		"group": "TTSBot Overlay Style"
+	},
+	"TTSOverlayBorderColor": {
+		"type": "colorpicker",
+		"label": "Overlay border color",
+		"value": "rgba(0,0,0,1)",
+		"tooltip": "TTSBot overlay border color.",
+		"group": "TTSBot Overlay Style"
+	},
+	"TTSOverlayBackgroundColor": {
+		"type": "colorpicker",
+		"label": "Overlay background color",
+		"value": "rgba(0,255,0,1)",
+		"tooltip": "TTSBot overlay background color.",
+		"group": "TTSBot Overlay Style"
+	}
+}
