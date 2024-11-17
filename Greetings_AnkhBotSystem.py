@@ -2,12 +2,12 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 1.2.1
+# Version: 1.2.2
 # Description: this script produces a sound and write a greetings message when somebody write for first time in chat, for current session. It can also reproduce another sound each time somebody write again in chat, or even read username with TTS. Anyway you can disable each sound. It could also just greet textually for first message in chat.
-# Change: Now TTS nick "black list filter" is case-insensitive.
+# Change: Now you can filter nicknames not to greet neither textually (aka: your own bots)
 # Services: Twitch, Mixer, Youtube
 # Overlays: Only TTS Bot
-# Update Date: 2018/12/14
+# Update Date: 2018/17/12
 #
 #---------------------------------------
 # CHANGELOG:
@@ -16,6 +16,7 @@
 # 2018/05/01 v1.1 - Fixed compatibility with Mixer and Youtube
 # 2018/10/05 v1.2 - Possibility to use a TSS Bot to read user name
 # 2018/14/12 v1.2.1 - Now TTS nick "black list filter" is case-insensitive
+# 2018/17/12 v1.2.2 - Now you can filter nicknames not to greet neither textually (aka: your own bots)
 #
 #---------------------------------------
 
@@ -47,7 +48,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.2.1"
+Version = "1.2.2"
 
 
 #---------------------------------------
@@ -73,6 +74,7 @@ class Settings:
                 self.__dict__ = json.load(f, encoding='utf-8-sig') 
         else: #set variables if no settings file
             self.BaseResponse = "Hi {0}! HeyGuys"
+            self.DoNotGreet = ""
             self.GreetWave = "Hi.mp3"
             self.GreetVolume = "100"
             self.MsgWave = "Page_Turn.mp3"
@@ -81,7 +83,7 @@ class Settings:
             self.TTSBotVolume = "100"
             self.TTSBlackListedWords = "Nigger, Jew, Nazi, Nigga"
             self.TTSBotLanguage = "US English Female"
-            self.TTSBotUser = "",
+            self.TTSBotUser = ""
             self.TTSBotKey = ""
             self.TTSOverlayFont = "Roboto"
             self.TTSOverlayFontSize = "32"
@@ -117,6 +119,7 @@ def Init():
     global chanName
     global greet
     global newMsg
+    global l_DontGreet
     global greetVol
     global newMsgVol
     global ttsBot
@@ -145,6 +148,9 @@ def Init():
             newMsg = "Services\Scripts\Greetings\\" + newMsg
         else:
             newMsg = ""
+
+    l_DontGreet = MySettings.DoNotGreet.split(",")
+    l_DontGreet = [x.strip().lower() for x in l_DontGreet]
 
     try:
         greetVol = int(MySettings.GreetVolume)
@@ -190,13 +196,13 @@ def Execute(data):
         user = data.User.lower()
 
         if user != chanName:
-            if user not in l_GreetedUsers:
+            if user not in l_GreetedUsers and user not in l_DontGreet:
                 l_GreetedUsers.append(user)
                 Parent.SendStreamMessage(MySettings.BaseResponse.format(user))
                 if not greet == "":
                     while not SoundPlayer(greet, greetVol):
                         continue
-                    if ttsBot and not CheckIsBlackListedWord(user.lower()):
+                    if ttsBot and not CheckIsBlackListedWord(user):
                         response = "https://warp.world/scripts/tts-message?streamer={0}&key={1}&viewer={2}&bar={3}&font={4}&sfont={5}&bfont={6}&gfont={7}&voice={8}&vol={9}&alert=false&message={10}".format(\
                             chanName, ttsBotKey, user, oFontBkgC, oFontC, MySettings.TTSOverlayFontSize, oFontBC, urllib.quote(cgi.escape(MySettings.TTSOverlayFont)), urllib.quote(cgi.escape(MySettings.TTSBotLanguage)), MySettings.TTSBotVolume, user)
                         response = Parent.GetRequest(response, {})
