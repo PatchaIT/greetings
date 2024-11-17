@@ -3,8 +3,39 @@
     "BaseResponse": {
         "type": "textbox",
         "value": "Hi {0}! HeyGuys",
-        "label": "Greeting message",
-        "tooltip": "Greeting message",
+        "label": "Greeting message for everyone",
+        "tooltip": "Greeting message for everyone",
+        "group": "General"
+    },
+    "VIPResponse": {
+        "type": "textbox",
+        "value": "Hi {0}! HeyGuys",
+        "label": "Greeting message for VIP",
+        "tooltip": "Greeting message for VIP",
+        "group": "General"
+    },
+    "SubResponse": {
+        "type": "textbox",
+        "value": "Hi {0}! HeyGuys",
+        "label": "Greeting message for subscribers",
+        "tooltip": "Greeting message for subscribers",
+        "group": "General"
+    },
+    "ModResponse": {
+        "type": "textbox",
+        "value": "Hi {0}! HeyGuys",
+        "label": "Greeting message for moderators",
+        "tooltip": "Greeting message for moderators",
+        "group": "General"
+    },
+    "InfoResponse": {
+        "type": "dropdown",
+        "label": "Note that between these responses, the last overcomes others above. I.e. a subscribed moderator will have moderator message, while a subscribed VIP will have subscriber message. If any field is empty, the level above will be used, or everyone's message.",
+        "value": "Ok, I got it!",
+        "tooltip": "Note that between these responses, the last overcomes others above. I.e. a subscribed moderator will have moderator message, while a subscribed VIP will have subscriber message. If any field is empty, the level above will be used, or everyone's message.",
+        "items": [
+            "Ok, I got it!"
+        ],
         "group": "General"
     },
     "DoNotGreet": {
