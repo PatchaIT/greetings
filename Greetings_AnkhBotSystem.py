@@ -2,12 +2,12 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 1.3
-# Description: this script produces a sound and write a greetings message when somebody write for first time in chat, for current session. It can also reproduce another sound each time somebody write again in chat, or even read username with TTS. Anyway you can disable each sound. It could also just greet textually for first message in chat.
+# Version: 1.4.3
+# Description: Produces a greetings sound and message when somebody write first time in a session. It can reproduce another sound each time somebody writes again in chat. Sounds can still be disabled, to just greet textually for first message in chat.
 # Change: Now you can set a different sentence for VIP, subriscribers and moderators.
 # Services: Twitch, Mixer, Youtube
-# Overlays: Only TTS Bot
-# Update Date: 2019/04/07
+# Overlays: None
+# Update Date: 2021/12/06
 #
 #---------------------------------------
 # CHANGELOG:
@@ -16,8 +16,11 @@
 # 2018/05/01 v1.1 - Fixed compatibility with Mixer and Youtube
 # 2018/10/05 v1.2 - Possibility to use a TSS Bot to read user name
 # 2018/14/12 v1.2.1 - Now TTS nick "black list filter" is case-insensitive
-# 2018/17/12 v1.2.2 - Now you can filter nicknames not to greet neither textually (aka: your own bots)
+# 2018/17/12 v1.2.2 - Now you can filter nicknames to not greet them neither textually (aka: your own bots)
 # 2019/04/07 v1.3 - Now you can set a different sentence for VIP, subriscribers and moderators.
+# 2021/12/06 v1.4.1 - Now you can filter nicknames to not check their messages and play no sound (aka: your own bots)
+# 2021/12/06 v1.4.2 - Fixed youtube name showing
+# 2021/12/06 v1.4.3 - Hidden the whole text to speach setting stuff, looking for a new working TTS server
 #
 #---------------------------------------
 
@@ -49,7 +52,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.3"
+Version = "1.4.3"
 
 
 #---------------------------------------
@@ -82,6 +85,7 @@ class Settings:
             self.DoNotGreet = ""
             self.GreetWave = "Hi.mp3"
             self.GreetVolume = "100"
+            self.DoNotMsg = ""
             self.MsgWave = "Page_Turn.mp3"
             self.MsgVolume = "100"
             self.TTSBot = False
@@ -126,6 +130,7 @@ def Init():
     global newMsg
     global l_DontGreet
     global greetVol
+    global l_DontMsg
     global newMsgVol
     global ttsBot
     global ttsBotKey
@@ -156,6 +161,9 @@ def Init():
 
     l_DontGreet = MySettings.DoNotGreet.split(",")
     l_DontGreet = [x.strip().lower() for x in l_DontGreet]
+
+    l_DontMsg = MySettings.DoNotMsg.split(",")
+    l_DontMsg = [x.strip().lower() for x in l_DontMsg]
 
     try:
         greetVol = int(MySettings.GreetVolume)
@@ -198,7 +206,7 @@ def Init():
 #---------------------------------------
 def Execute(data):
     if data.IsChatMessage() and not data.IsFromDiscord():
-        user = data.User.lower()
+        user = data.UserName.lower()
 
         if user != chanName:
             if user not in l_GreetedUsers and user not in l_DontGreet:
@@ -221,8 +229,9 @@ def Execute(data):
                         response = Parent.GetRequest(response, {})
 
             else:
-                if not newMsg == "":
-                    SoundPlayer(newMsg, newMsgVol)
+                if user not in l_DontMsg:
+                    if not newMsg == "":
+                        SoundPlayer(newMsg, newMsgVol)
 
     return
 
