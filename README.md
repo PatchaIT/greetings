@@ -26,9 +26,6 @@ Greetings
   * [Do Not Greet](#do-not-greet)
   * [Greetings Audio](#greetings-audio)
     * [New Message Audio](#new-message-audio)
-  * [TTS BOT Install And Settings](#tts-bot-install-and-settings)
-    * [TTS BOT Install](#tts-bot-install)
-    * [TTS BOT Settings](#tts-bot-settings)
 
 ## About The Project
 
