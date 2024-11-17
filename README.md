@@ -1,9 +1,9 @@
 [![development status | 7 - Inactive](https://img.shields.io/badge/Development_Status-7_--_Inactive-orange)](https://pypi.org/classifiers/)
 [![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
-![license](https://img.shields.io/github/license/PatchaIT/slcb-greetings)
+![license](https://img.shields.io/github/license/PatchaIT/greetings)
 ___
 <h1 align="center">
-(slcb) Greetings
+Greetings
 </h1>
 <p align="center">
 <sup>
@@ -47,7 +47,7 @@ Enjoy.
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.2
+- Version: 1.2.1
 - Description: Produces a sound and writes a greetings message when somebody sends his first message in chat, for current session. It can also reproduce another sound each time somebody write again in chat, or even read username with TTS. Anyway you can disable each sound. It could also just greet textually for first message in chat.
 - Changes: Added Text To Speach feature to read writer's nickname.
 - Services: Twitch, Mixer, Youtube
@@ -56,12 +56,14 @@ Enjoy.
 
 ## Changelog
 
-- 2018/10/05 v1.2
-  - Added Text To Speach feature to read writer's nickname.
-- 2018/05/01 v1.1
-  - Fixed compatibility with Mixer and Youtube
 - 2018/05/01 v1.0
   - Initial Release
+- 2018/05/01 v1.1
+  - Fixed compatibility with Mixer and Youtube
+- 2018/10/05 v1.2
+  - Added Text To Speach feature to read writer's nickname.
+- 2018/14/12 v1.2.1
+  - Now TTS nick "black list filter" is case-insensitive
 
 PS:
 Thanks @Castorr91 for some fixes suggestion and sharing on Discord. ;)
