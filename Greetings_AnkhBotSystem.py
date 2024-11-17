@@ -2,12 +2,12 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 1.4.3
+# Version: 1.4.4
 # Description: Produces a greetings sound and message when somebody write first time in a session. It can reproduce another sound each time somebody writes again in chat. Sounds can still be disabled, to just greet textually for first message in chat.
 # Change: Now you can set a different sentence for VIP, subriscribers and moderators.
 # Services: Twitch, Mixer, Youtube
 # Overlays: None
-# Update Date: 2021/12/06
+# Update Date: 2021/12/08
 #
 #---------------------------------------
 # CHANGELOG:
@@ -21,6 +21,7 @@
 # 2021/12/06 v1.4.1 - Now you can filter nicknames to not check their messages and play no sound (aka: your own bots)
 # 2021/12/06 v1.4.2 - Fixed youtube name showing
 # 2021/12/06 v1.4.3 - Hidden the whole text to speach setting stuff, looking for a new working TTS server
+# 2021/12/08 v1.4.4 - Hotfixes thank to Castorr91
 #
 #---------------------------------------
 
@@ -52,7 +53,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.4.3"
+Version = "1.4.4"
 
 
 #---------------------------------------
@@ -88,17 +89,18 @@ class Settings:
             self.DoNotMsg = ""
             self.MsgWave = "Page_Turn.mp3"
             self.MsgVolume = "100"
-            self.TTSBot = False
-            self.TTSBotVolume = "100"
-            self.TTSBlackListedWords = "Nigger, Jew, Nazi, Nigga"
-            self.TTSBotLanguage = "US English Female"
-            self.TTSBotUser = ""
-            self.TTSBotKey = ""
-            self.TTSOverlayFont = "Roboto"
-            self.TTSOverlayFontSize = "32"
-            self.TTSOverlayFontColor = "rgba(65,65,244,1)"
-            self.TTSOverlayBorderColor = "rgba(66,244,125,1)"
-            self.TTSOverlayBackgroundColor = "rgba(255,255,255,1)"
+        # TTSBot is deprecatd, so always keeps defaults
+        self.TTSBot = False
+        self.TTSBotVolume = "100"
+        self.TTSBlackListedWords = "Nigger, Jew, Nazi, Nigga"
+        self.TTSBotLanguage = "US English Female"
+        self.TTSBotUser = ""
+        self.TTSBotKey = ""
+        self.TTSOverlayFont = "Roboto"
+        self.TTSOverlayFontSize = "32"
+        self.TTSOverlayFontColor = "rgba(65,65,244,1)"
+        self.TTSOverlayBorderColor = "rgba(66,244,125,1)"
+        self.TTSOverlayBackgroundColor = "rgba(255,255,255,1)"
 
     # Reload settings on save through UI
     def ReloadSettings(self, data):
