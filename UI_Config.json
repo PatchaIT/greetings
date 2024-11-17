@@ -43,14 +43,14 @@
         "value": "IoSonoBotman",
         "label": "Users not to greet",
         "tooltip": "Users to not greet. Seperated through commas.",
-        "group": "General"
+        "group": "Greeting sound"
     },
     "GreetWave": {
         "type": "textbox",
         "value": "Hi.mp3",
         "label": "Greeting audio",
         "tooltip": "Greeting audio",
-        "group": "General"
+        "group": "Greeting sound"
     },
     "GreetVolume": {
         "type": "slider",
@@ -60,14 +60,21 @@
         "ticks": 1,
         "label": "Volume greeting audio",
         "tooltip": "Volume to play greeting sound.",
-        "group": "General"
+        "group": "Greeting sound"
+    },
+    "DoNotMsg": {
+        "type": "textbox",
+        "value": "IoSonoBotman",
+        "label": "Users not to check messages",
+        "tooltip": "Users to not check messages. Seperated through commas.",
+        "group": "Chat message sound"
     },
     "MsgWave": {
         "type": "textbox",
         "value": "Page_Turn.mp3",
         "label": "New message audio",
         "tooltip": "Page_Turn.mp3",
-        "group": "General"
+        "group": "Chat message sound"
     },
     "MsgVolume": {
         "type": "slider",
@@ -77,7 +84,7 @@
         "ticks": 1,
         "label": "Volume new message audio",
         "tooltip": "Volume to play new message sound.",
-        "group": "General"
+        "group": "Chat message sound"
     },
      "TTSBot": {
         "type": "checkbox",
@@ -183,25 +190,25 @@
         "tooltip": "TTSBot overlay font size.",
         "group": "TTSBot Overlay Style"
     },
-	"TTSOverlayFontColor": {
-		"type": "colorpicker",
-		"label": "Overlay font color",
-		"value": "rgba(4,118,189,1)",
-		"tooltip": "TTSBot overlay font color.",
-		"group": "TTSBot Overlay Style"
-	},
-	"TTSOverlayBorderColor": {
-		"type": "colorpicker",
-		"label": "Overlay border color",
-		"value": "rgba(0,0,0,1)",
-		"tooltip": "TTSBot overlay border color.",
-		"group": "TTSBot Overlay Style"
-	},
-	"TTSOverlayBackgroundColor": {
-		"type": "colorpicker",
-		"label": "Overlay background color",
-		"value": "rgba(0,255,0,1)",
-		"tooltip": "TTSBot overlay background color.",
-		"group": "TTSBot Overlay Style"
-	}
+    "TTSOverlayFontColor": {
+        "type": "colorpicker",
+        "label": "Overlay font color",
+        "value": "rgba(4,118,189,1)",
+        "tooltip": "TTSBot overlay font color.",
+        "group": "TTSBot Overlay Style"
+    },
+    "TTSOverlayBorderColor": {
+        "type": "colorpicker",
+        "label": "Overlay border color",
+        "value": "rgba(0,0,0,1)",
+        "tooltip": "TTSBot overlay border color.",
+        "group": "TTSBot Overlay Style"
+    },
+    "TTSOverlayBackgroundColor": {
+        "type": "colorpicker",
+        "label": "Overlay background color",
+        "value": "rgba(0,255,0,1)",
+        "tooltip": "TTSBot overlay background color.",
+        "group": "TTSBot Overlay Style"
+    }
 }
