@@ -26,9 +26,6 @@ Greetings
   * [Do Not Greet](#do-not-greet)
   * [Greetings Audio](#greetings-audio)
     * [New Message Audio](#new-message-audio)
-  * [TTS BOT Install And Settings](#tts-bot-install-and-settings)
-    * [TTS BOT Install](#tts-bot-install)
-    * [TTS BOT Settings](#tts-bot-settings)
 
 ## About The Project
 
@@ -49,7 +46,7 @@ Enjoy.
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.4.3
+- Version: 1.4.4
 - Description: Produces a greetings sound and message when somebody write first time in a session. It can reproduce another sound each time somebody writes again in chat. Sounds can still be disabled, to just greet textually for first message in chat.
 - Change: Now you can filter nicknames to not check their messages and play no sound (aka: your own bots); fixed youtube name showing; hidden the whole text to speach setting stuff, looking for a new working TTS server.
 - Services: Twitch, Mixer, Youtube
@@ -76,6 +73,8 @@ Enjoy.
   - Fixed youtube name showing
 - 2021/12/06 v1.4.3
   - Hidden the whole text to speach setting stuff, looking for a new working TTS server
+- 2021/12/08 v1.4.4
+  - Hotfixes thank to Castorr91
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)

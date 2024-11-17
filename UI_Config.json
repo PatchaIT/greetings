@@ -40,7 +40,7 @@
     },
     "DoNotGreet": {
         "type": "textbox",
-        "value": "IoSonoBotman",
+        "value": "",
         "label": "Users not to greet",
         "tooltip": "Users to not greet. Seperated through commas.",
         "group": "Greeting sound"
@@ -64,7 +64,7 @@
     },
     "DoNotMsg": {
         "type": "textbox",
-        "value": "IoSonoBotman",
+        "value": "",
         "label": "Users not to check messages",
         "tooltip": "Users to not check messages. Seperated through commas.",
         "group": "Chat message sound"
@@ -87,14 +87,16 @@
         "group": "Chat message sound"
     },
      "TTSBot": {
-        "type": "checkbox",
+        "type": "hidden",
+        "old_type": "checkbox",
         "value": false,
         "label": "Turn ON TTS Bot",
         "tooltip": "Do you wish a voice to read user's name.",
         "group": "TTSBot"
     },
     "TTSBotVolume": {
-        "type": "slider",
+        "type": "hidden",
+        "old_type": "slider",
         "value": 100,
         "min": 0,
         "max": 100,
@@ -104,14 +106,16 @@
         "group": "TTSBot"
     },
    "TTSBlackListedWords": {
-        "type": "textbox",
+        "type": "hidden",
+        "old_type": "textbox",
         "value": "Nigger, Jew, Nazi, Nigga",
         "label": "Black listed words",
         "tooltip": "List of words you want to get filtered. Seperated through commas. Coupled through plus symbol.\r\nTTSBot will not read names containing those words.",
         "group": "TTSBot"
     },
     "TTSBotLanguage": {
-        "type": "dropdown",
+        "type": "hidden",
+        "old_type": "dropdown",
         "label": "Bot Language",
         "value": "US English Female",
         "tooltip": "Which language should TTSBot interpretate?",
@@ -135,21 +139,24 @@
         "group": "TTSBot"
     },
    "TTSBotKey": {
-        "type": "textbox",
+        "type": "hidden",
+        "old_type": "textbox",
         "value": "",
         "label": "Generated Key",
         "tooltip": "Write here TTS Bot Key you got from clicking button below.",
         "group": "TTSBot User"
     },
    "TTSBotUser": {
-        "type": "textbox",
+        "type": "hidden",
+        "old_type": "textbox",
         "value": "",
         "label": "Custom user (optional)",
         "tooltip": "Fill this if you wanna link TTSBot to a different user, then click button below.\r\nEmpty = default Channel Name",
         "group": "TTSBot User"
     },
     "TTSWhisperNewKey": {
-        "type": "button",
+        "type": "hidden",
+        "old_type": "button",
         "label": "Get Browser Source URL",
         "tooltip": "Your bot will whisper you the BrowserSource URL. Be sure to use a different user as streamer Bot!",
         "function": "GenerateAndWhisperTTSBotKey",
@@ -157,7 +164,8 @@
         "group": "TTSBot User"
     },
     "TTSOverlayFont": {
-        "type": "dropdown",
+        "type": "hidden",
+        "old_type": "dropdown",
         "label": "Overlay Google font",
         "value": "Roboto",
         "tooltip": "Which google font should be used?",
@@ -181,7 +189,8 @@
         "group": "TTSBot Overlay Style"
     },
     "TTSOverlayFontSize": {
-        "type": "slider",
+        "type": "hidden",
+        "old_type": "slider",
         "value": 32,
         "min": 0,
         "max": 100,
@@ -191,21 +200,24 @@
         "group": "TTSBot Overlay Style"
     },
     "TTSOverlayFontColor": {
-        "type": "colorpicker",
+        "type": "hidden",
+        "old_type": "colorpicker",
         "label": "Overlay font color",
         "value": "rgba(4,118,189,1)",
         "tooltip": "TTSBot overlay font color.",
         "group": "TTSBot Overlay Style"
     },
     "TTSOverlayBorderColor": {
-        "type": "colorpicker",
+        "type": "hidden",
+        "old_type": "colorpicker",
         "label": "Overlay border color",
         "value": "rgba(0,0,0,1)",
         "tooltip": "TTSBot overlay border color.",
         "group": "TTSBot Overlay Style"
     },
     "TTSOverlayBackgroundColor": {
-        "type": "colorpicker",
+        "type": "hidden",
+        "old_type": "colorpicker",
         "label": "Overlay background color",
         "value": "rgba(0,255,0,1)",
         "tooltip": "TTSBot overlay background color.",
