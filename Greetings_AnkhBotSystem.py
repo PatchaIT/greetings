@@ -22,6 +22,7 @@
 # 2021/12/06 v1.4.2 - Fixed youtube name showing
 # 2021/12/06 v1.4.3 - Hidden the whole text to speach setting stuff, looking for a new working TTS server
 # 2021/12/08 v1.4.4 - Hotfixes thank to Castorr91
+# 2022/01/09 v1.5 - Now you can filter message by starting characters or words (i.e.: ! for chat commands).
 #
 #---------------------------------------
 
@@ -53,7 +54,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.4.4"
+Version = "1.5"
 
 
 #---------------------------------------
@@ -74,21 +75,26 @@ class Settings:
     # Tries to load settings from file if given 
     # The 'default' variable names need to match UI_Config
     def __init__(self, settingsFile = None):
+        #initialize variables to defaults, if no settings file
+        self.BaseResponse = "Hi {0}! HeyGuys"
+        self.VIPResponse = ""
+        self.SubResponse = ""
+        self.ModResponse = ""
+        self.InfoResponse= "Ok, I got it!"
+        self.DoNotGreet = ""
+        self.NoStartGreet = ""
+        self.GreetWave = "Hi.mp3"
+        self.GreetVolume = "100"
+        self.DoNotMsg = ""
+        self.NoStartMsg = ""
+        self.MsgWave = "Page_Turn.mp3"
+        self.MsgVolume = "100"
+
+        #set variables from settings file
         if settingsFile is not None and os.path.isfile(settingsFile):
             with codecs.open(settingsFile, encoding='utf-8-sig',mode='r') as f:
                 self.__dict__ = json.load(f, encoding='utf-8-sig') 
-        else: #set variables if no settings file
-            self.BaseResponse = "Hi {0}! HeyGuys"
-            self.VIPResponse = ""
-            self.SubResponse = ""
-            self.ModResponse = ""
-            self.InfoResponse= "Ok, I got it!"
-            self.DoNotGreet = ""
-            self.GreetWave = "Hi.mp3"
-            self.GreetVolume = "100"
-            self.DoNotMsg = ""
-            self.MsgWave = "Page_Turn.mp3"
-            self.MsgVolume = "100"
+
         # TTSBot is deprecatd, so always keeps defaults
         self.TTSBot = False
         self.TTSBotVolume = "100"
@@ -131,8 +137,10 @@ def Init():
     global greet
     global newMsg
     global l_DontGreet
+    global l_NoStartGreet
     global greetVol
     global l_DontMsg
+    global l_NoStartMsg
     global newMsgVol
     global ttsBot
     global ttsBotKey
@@ -166,6 +174,20 @@ def Init():
 
     l_DontMsg = MySettings.DoNotMsg.split(",")
     l_DontMsg = [x.strip().lower() for x in l_DontMsg]
+
+    if MySettings.NoStartGreet:
+        l_NoStartGreet = MySettings.NoStartGreet.split(" ")
+        l_NoStartGreet = [x.strip().lower() for x in l_NoStartGreet]
+        l_NoStartGreet = tuple(l_NoStartGreet)
+    else:
+        l_NoStartGreet = tuple()
+
+    if MySettings.NoStartMsg:
+        l_NoStartMsg = MySettings.NoStartMsg.split(",")
+        l_NoStartMsg = [x.strip().lower() for x in l_NoStartMsg]
+        l_NoStartMsg = tuple(l_NoStartMsg)
+    else:
+        l_NoStartMsg = tuple()
 
     try:
         greetVol = int(MySettings.GreetVolume)
@@ -209,9 +231,10 @@ def Init():
 def Execute(data):
     if data.IsChatMessage() and not data.IsFromDiscord():
         user = data.UserName.lower()
+        msg = data.GetParam(0).lower()
 
         if user != chanName:
-            if user not in l_GreetedUsers and user not in l_DontGreet:
+            if user not in l_GreetedUsers and user not in l_DontGreet and (not l_NoStartGreet or not msg.startswith(l_NoStartGreet)):
                 l_GreetedUsers.append(user)
                 if MySettings.ModResponse and Parent.HasPermission(data.User, "Moderator", ""):
                     Parent.SendStreamMessage(MySettings.ModResponse.format(user))
@@ -231,7 +254,7 @@ def Execute(data):
                         response = Parent.GetRequest(response, {})
 
             else:
-                if user not in l_DontMsg:
+                if user not in l_DontMsg and (not l_NoStartMsg or not msg.startswith(l_NoStartMsg)):
                     if not newMsg == "":
                         SoundPlayer(newMsg, newMsgVol)
 

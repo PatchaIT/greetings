@@ -45,6 +45,13 @@
         "tooltip": "Users to not greet. Seperated through commas.",
         "group": "Greeting sound"
     },
+    "NoStartGreet": {
+        "type": "textbox",
+        "value": "",
+        "label": "Don't greet messages starting by",
+        "tooltip": "Messages starting this ways will not be greeted.",
+        "group": "Greeting sound"
+    },
     "GreetWave": {
         "type": "textbox",
         "value": "Hi.mp3",
@@ -67,6 +74,13 @@
         "value": "",
         "label": "Users not to check messages",
         "tooltip": "Users to not check messages. Seperated through commas.",
+        "group": "Chat message sound"
+    },
+    "NoStartMsg": {
+        "type": "textbox",
+        "value": "!",
+        "label": "Ignore messages starting by",
+        "tooltip": "Messages starting this ways will be ignored.",
         "group": "Chat message sound"
     },
     "MsgWave": {
