@@ -7,6 +7,13 @@
         "tooltip": "Greeting message",
         "group": "General"
     },
+    "DoNotGreet": {
+        "type": "textbox",
+        "value": "IoSonoBotman",
+        "label": "Users not to greet",
+        "tooltip": "Users to not greet. Seperated through commas.",
+        "group": "General"
+    },
     "GreetWave": {
         "type": "textbox",
         "value": "Hi.mp3",

@@ -22,11 +22,12 @@ Greetings
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
 * [Usage](#usage)
-* [Greetings Audio](#greetings-audio)
-  * [New Message Audio](#new-message-audio)
-* [TTS BOT Install And Settings](#tts-bot-install-and-settings)
-  * [TTS BOT Install](#tts-bot-install)
-  * [TTS BOT Settings](#tts-bot-settings)
+  * [Do Not Greet](#do-not-greet)
+  * [Greetings Audio](#greetings-audio)
+    * [New Message Audio](#new-message-audio)
+  * [TTS BOT Install And Settings](#tts-bot-install-and-settings)
+    * [TTS BOT Install](#tts-bot-install)
+    * [TTS BOT Settings](#tts-bot-settings)
 
 ## About The Project
 
@@ -49,9 +50,9 @@ Enjoy.
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.2.1
+- Version: 1.2.2
 - Description: Produces a sound and writes a greetings message when somebody sends his first message in chat, for current session. It can also reproduce another sound each time somebody write again in chat, or even read username with TTS. Anyway you can disable each sound. It could also just greet textually for first message in chat.
-- Changes: Added Text To Speach feature to read writer's nickname.
+- Changes: Now you can filter nicknames not to greet neither textually (aka: your own bots)
 - Services: Twitch, Mixer, Youtube
 - Overlays: Only TTS Bot
 - Made By: @Patcha_it
@@ -66,9 +67,11 @@ Enjoy.
   - Added Text To Speach feature to read writer's nickname.
 - 2018/14/12 v1.2.1
   - Now TTS nick "black list filter" is case-insensitive
+- 2018/17/12 v1.2.2
+  - Now you can filter nicknames not to greet neither textually (aka: your own bots)
 
 PS:
-Thanks @Castorr91 for some fixes suggestion and sharing on Discord. ;)
+Thanks @Castorr91 for some fixes suggestion. ;)
 
 ## Getting Started
 
@@ -78,7 +81,7 @@ Have an installation of Streamlabs Chatbot, already logged in to your accounts.
 * [Download Streamlabs Chatbot](https://streamlabs.com/desktop-chatbot)
 
 Follow this tutorial to prepare your Streamlabs Chatbot installation to accept scripts.
-* [[Streamlabs Chatbot] Scripts Explained by Castorr91](https://www.youtube.com/watch?v=l3FBpY-0880&t=3s)
+* [[Streamlabs Chatbot] Scripts Explained by Castorr91](https://www.youtube.com/watch?v=l3FBpY-0880)
 
 ### Installation
 
@@ -91,6 +94,12 @@ Follow this tutorial to prepare your Streamlabs Chatbot installation to accept s
 7. Click on the `Greetings` name to see the configuration pane.
 
 ## Usage
+
+### Do Not Greet
+  <sup>(Users not to greet)</sup>
+
+If you have bots or other users you don't want to greet on chat, just list
+ their nick separated by commas, into `Users not to greet` field.
 
 ### Greetings Audio
 
