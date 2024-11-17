@@ -16,6 +16,7 @@ Greetings
 ## Table of Contents
 
 * [About the Project](#about-the-project)
+  * [Warning Note](#warning-note)
 * [In Shorts](#in-shorts)
 * [Changelog](#changelog)
 * [Getting Started](#getting-started)
@@ -24,6 +25,7 @@ Greetings
 * [Usage](#usage)
   * [Vip, Subscriber, Moderator Message](#vip-subscriber-moderator-message)
   * [Do Not Greet](#do-not-greet)
+  * [Ignore Starting By](#ignore-starting-by)
   * [Greetings Audio](#greetings-audio)
     * [New Message Audio](#new-message-audio)
 
@@ -43,13 +45,30 @@ Anyway you can disable one or all sounds, so it would only greet textually
 
 Enjoy.
 
+### Warning Note
+
+If you're updating for a previous versions, after loading Chatbot and
+ all scripts, do as follows:
+1. if you can't find `Greetings` anymore, go to script folder (right click
+ on a script + click `Open Script Folder` + open `Greetings` folder) and
+ delete these files: `settings.js` and `settings.json`)
+2. click refresh script buttons (two cicle arros icon, the first on top
+ right), click on Greetings script and save again settings (even if you
+ didnt' change them). This would recreate `settings.js` and `settings.json`
+ files with new options included.
+3. I suggest to refresh scripts again.
+
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.4.4
-- Description: Produces a greetings sound and message when somebody write first time in a session. It can reproduce another sound each time somebody writes again in chat. Sounds can still be disabled, to just greet textually for first message in chat.
-- Change: Now you can filter nicknames to not check their messages and play no sound (aka: your own bots); fixed youtube name showing; hidden the whole text to speach setting stuff, looking for a new working TTS server.
-- Services: Twitch, Mixer, Youtube
+- Version: 1.5
+- Description: Produces a greetings sound and message when somebody write first
+ time in a session. It can reproduce another sound each time somebody writes
+ again in chat. Sounds can still be disabled, to just greet textually for first
+ message in chat.
+- Change: Now you can filter message by starting characters or words
+ (i.e.: ! for chat commands).
+- Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
 
@@ -60,21 +79,26 @@ Enjoy.
 - 2018/05/01 v1.1
   - Fixed compatibility with Mixer and Youtube
 - 2018/10/05 v1.2
-  - Added Text To Speach feature to read writer's nickname.
+  - Added option for Text To Speach feature to read writer's nickname.
 - 2018/14/12 v1.2.1
-  - Now TTS nick "black list filter" is case-insensitive
+  - Now TTS nick `black list filter` is case-insensitive
 - 2018/17/12 v1.2.2
-  - Now you can filter nicknames not to greet neither textually (aka: your own bots)
+  - Now you can filter nicknames not to greet neither textually
+    (aka: your own bots)
 - 2019/04/07 v1.3
   - Now you can set a different sentence for VIP, subriscribers and moderators.
 - 2021/12/06 v1.4.1
-  - Now you can filter nicknames to not check their messages and play no sound (aka: your own bots)
+  - Now you can filter nicknames to not check their messages and play no sound
+    (aka: your own bots)
 - 2021/12/06 v1.4.2
   - Fixed youtube name showing
 - 2021/12/06 v1.4.3
   - Hidden the whole text to speach setting stuff, looking for a new working TTS server
 - 2021/12/08 v1.4.4
   - Hotfixes thank to Castorr91
+- 2022/02/09 v1.5
+  - Now you can filter message by starting characters or words
+    (i.e.: ! for chat commands).
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)
@@ -119,6 +143,19 @@ If you have bots or other users you don't want to greet on chat, just list
 
 If you also want to filter them for `New message audio` function, just list
  them the same way into the `Users not to check messages` field.
+
+### Ignore Starting By
+  <sup>(Don't greet messages starting by)</sup>
+
+If your chat uses often messages starting by some characters or words,
+ like chat minigames, commands or emotes, you can filter those message,
+ by listing sequences of characters, and seaparte each sequence with a space.
+
+If you also want to filter them for `New message audio` function, just list
+ them the same way into the `Ignore messages starting by` field.
+
+Note: spaces cannot be set into character sequences, because they're used
+ as separators.
 
 ### Greetings Audio
 
