@@ -1,6 +1,8 @@
 [![development status | 7 - Inactive](https://img.shields.io/badge/Development_Status-7_--_Inactive-orange)](https://pypi.org/classifiers/)
 [![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
-![license](https://img.shields.io/github/license/PatchaIT/greetings)
+![license](https://img.shields.io/badge/license-MIT-green)
+![release](https://img.shields.io/github/v/release/PatchaIT/greetings)
+![version](https://img.shields.io/github/v/tag/PatchaIT/greetings)
 ___
 <h1 align="center">
 Greetings
