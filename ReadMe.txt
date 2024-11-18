@@ -18,7 +18,8 @@ If you're updating for a previous versions, after loading Chatbot and
  all scripts, do as follows:
 1. if you can't find `Greetings` anymore, go to script folder (right click
  on a script + click `Open Script Folder` + open `Greetings` folder) and
- delete these files: `settings.js` and `settings.json`)
+ backup/delete/rename these files: `settings.js` and `settings.json`
+ (they are your current config files)
 2. click refresh script buttons (two cicle arros icon, the first on top
  right), click on Greetings script and save again settings (even if you
  didnt' change them). This would recreate `settings.js` and `settings.json`
@@ -28,32 +29,33 @@ If you're updating for a previous versions, after loading Chatbot and
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.5
+- Version: 1.5.1
 - Description: Produces a greetings sound and message when somebody write first
  time in a session. It can reproduce another sound each time somebody writes
  again in chat. Sounds can still be disabled, to just greet textually for first
  message in chat.
-- Change: Now you can filter message by starting characters or words
- (i.e.: ! for chat commands).
+- Change: Fixed typo on "Ignore messages starting by" splitter character
+ (was comma, have to be space).
 - Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
+- Update Date: 2022/02/16
 
 ## Changelog
 
-- 2018/05/01 v1.0
+- 2018/05/01 v1.0.0
   - Initial Release
-- 2018/05/01 v1.1
+- 2018/05/01 v1.1.0
   - Fixed compatibility with Mixer and Youtube
-- 2018/10/05 v1.2
-  - Added option for Text To Speach feature to read writer's nickname.
+- 2018/10/05 v1.2.0
+  - Added option for Text To Speach feature to read writer's nickname
 - 2018/14/12 v1.2.1
   - Now TTS nick `black list filter` is case-insensitive
 - 2018/17/12 v1.2.2
   - Now you can filter nicknames not to greet neither textually
     (aka: your own bots)
-- 2019/04/07 v1.3
-  - Now you can set a different sentence for VIP, subriscribers and moderators.
+- 2019/04/07 v1.3.0
+  - Now you can set a different sentence for VIP, subriscribers and moderators
 - 2021/12/06 v1.4.1
   - Now you can filter nicknames to not check their messages and play no sound
     (aka: your own bots)
@@ -63,9 +65,12 @@ If you're updating for a previous versions, after loading Chatbot and
   - Hidden the whole text to speach setting stuff, looking for a new working TTS server
 - 2021/12/08 v1.4.4
   - Hotfixes thank to Castorr91
-- 2022/02/09 v1.5
+- 2022/02/09 v1.5.0
   - Now you can filter message by starting characters or words
-    (i.e.: ! for chat commands).
+    (i.e.: ! for chat commands)
+- 2022/02/16 v1.5.1
+  - Fixed typo on "Ignore messages starting by" splitter character
+    (was comma, have to be space)
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)
