@@ -2,12 +2,12 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 1.4.4
+# Version: 1.5.1
 # Description: Produces a greetings sound and message when somebody write first time in a session. It can reproduce another sound each time somebody writes again in chat. Sounds can still be disabled, to just greet textually for first message in chat.
-# Change: Now you can set a different sentence for VIP, subriscribers and moderators.
+# Change: Fixed typo on "Ignore messages starting by" splitter character
 # Services: Twitch, Mixer, Youtube
 # Overlays: None
-# Update Date: 2021/12/08
+# Update Date: 2022/02/16
 #
 #---------------------------------------
 # CHANGELOG:
@@ -17,12 +17,13 @@
 # 2018/10/05 v1.2 - Possibility to use a TSS Bot to read user name
 # 2018/14/12 v1.2.1 - Now TTS nick "black list filter" is case-insensitive
 # 2018/17/12 v1.2.2 - Now you can filter nicknames to not greet them neither textually (aka: your own bots)
-# 2019/04/07 v1.3 - Now you can set a different sentence for VIP, subriscribers and moderators.
+# 2019/04/07 v1.3 - Now you can set a different sentence for VIP, subriscribers and moderators
 # 2021/12/06 v1.4.1 - Now you can filter nicknames to not check their messages and play no sound (aka: your own bots)
 # 2021/12/06 v1.4.2 - Fixed youtube name showing
 # 2021/12/06 v1.4.3 - Hidden the whole text to speach setting stuff, looking for a new working TTS server
 # 2021/12/08 v1.4.4 - Hotfixes thank to Castorr91
-# 2022/01/09 v1.5 - Now you can filter message by starting characters or words (i.e.: ! for chat commands).
+# 2022/02/09 v1.5 - Now you can filter message by starting characters or words (i.e.: ! for chat commands)
+# 2022/02/16 v1.5.1 - Fixed typo on "Ignore messages starting by" splitter character (was comma, have to be space)
 #
 #---------------------------------------
 
@@ -54,7 +55,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.5"
+Version = "1.5.1"
 
 
 #---------------------------------------
@@ -153,7 +154,9 @@ def Init():
     MySettings = Settings(settingsFile)
     l_GreetedUsers = []
 
-    chanName = Parent.GetChannelName().lower()
+    chanName = Parent.GetChannelName()
+    if isinstance(chanName, str):
+        chanName = chanName.lower()
 
     greet = MySettings.GreetWave
     if not os.path.isfile(greet):
@@ -183,7 +186,7 @@ def Init():
         l_NoStartGreet = tuple()
 
     if MySettings.NoStartMsg:
-        l_NoStartMsg = MySettings.NoStartMsg.split(",")
+        l_NoStartMsg = MySettings.NoStartMsg.split(" ")
         l_NoStartMsg = [x.strip().lower() for x in l_NoStartMsg]
         l_NoStartMsg = tuple(l_NoStartMsg)
     else:
