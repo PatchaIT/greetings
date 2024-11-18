@@ -62,17 +62,16 @@ If you're updating for a previous versions, after loading Chatbot and
 ## In Shorts
 
 - Script: Greetings
-- Version: 1.5.1
+- Version: 1.5.2
 - Description: Produces a greetings sound and message when somebody write first
  time in a session. It can reproduce another sound each time somebody writes
  again in chat. Sounds can still be disabled, to just greet textually for first
  message in chat.
-- Change: Fixed typo on "Ignore messages starting by" splitter character
- (was comma, have to be space).
+Change: Fixed volume setting for sounds.
 - Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
-- Update Date: 2022/02/16
+- Update Date: 2022/08/05
 
 ## Changelog
 
@@ -104,6 +103,8 @@ If you're updating for a previous versions, after loading Chatbot and
 - 2022/02/16 v1.5.1
   - Fixed typo on "Ignore messages starting by" splitter character
     (was comma, have to be space)
+- 2022/08/05 v1.5.2
+  - Fixed volume setting for sounds
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)

@@ -2,12 +2,12 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 1.5.1
+# Version: 1.5.2
 # Description: Produces a greetings sound and message when somebody write first time in a session. It can reproduce another sound each time somebody writes again in chat. Sounds can still be disabled, to just greet textually for first message in chat.
-# Change: Fixed typo on "Ignore messages starting by" splitter character
-# Services: Twitch, Mixer, Youtube
+# Change: Fixed volume setting for sounds
+# Services: Twitch, Youtube
 # Overlays: None
-# Update Date: 2022/02/16
+# Update Date: 2022/08/05
 #
 #---------------------------------------
 # CHANGELOG:
@@ -24,6 +24,7 @@
 # 2021/12/08 v1.4.4 - Hotfixes thank to Castorr91
 # 2022/02/09 v1.5 - Now you can filter message by starting characters or words (i.e.: ! for chat commands)
 # 2022/02/16 v1.5.1 - Fixed typo on "Ignore messages starting by" splitter character (was comma, have to be space)
+# 2022/08/05 v1.5.2 - Fixed volume setting for sounds
 #
 #---------------------------------------
 
@@ -55,7 +56,7 @@ ScriptName = "Greetings"
 Website = "http://www.patcha.it"
 Description = "It greets viewers first time they write on chat"
 Creator = "Patcha"
-Version = "1.5.1"
+Version = "1.5.2"
 
 
 #---------------------------------------
@@ -99,7 +100,7 @@ class Settings:
         # TTSBot is deprecatd, so always keeps defaults
         self.TTSBot = False
         self.TTSBotVolume = "100"
-        self.TTSBlackListedWords = "Nigger, Jew, Nazi, Nigga"
+        self.TTSBlackListedWords = ""
         self.TTSBotLanguage = "US English Female"
         self.TTSBotUser = ""
         self.TTSBotKey = ""
@@ -194,13 +195,17 @@ def Init():
 
     try:
         greetVol = int(MySettings.GreetVolume)
+        if (greetVol > 0):
+            greetVol = float(greetVol) / 100
     except ValueError:
-        greetVol = 100
+        greetVol = 1.0
 
     try:
         newMsgVol = int(MySettings.MsgVolume)
+        if (newMsgVol > 0):
+            newMsgVol = float(newMsgVol) / 100
     except ValueError:
-        newMsgVol = 100
+        newMsgVol = 1.0
 
     ttsBot = MySettings.TTSBot
     ttsBotKey = MySettings.TTSBotKey
@@ -299,7 +304,6 @@ def CheckIsBlackListedWord(user):
 
 
 def ParseBlackListedWords(Words):
-    # i.e.: "Nigger, Jew, Nazi, Nigga, Mother+Fucker"
     Words = Words.split(",")
     Words = [x.strip().lower() for x in Words]
     Words = [x.split("+") for x in Words]
@@ -346,6 +350,6 @@ def RgbaToHex(rgba):
 
 
 def SoundPlayer(path, vol):
-    if not path == "" and not vol == 0:
+    if not path == "" and not vol < 0.01:
         return Parent.PlaySound(path, vol)
     return True
