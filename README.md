@@ -67,7 +67,7 @@ If you're updating for a previous versions, after loading Chatbot and
  time in a session. It can reproduce another sound each time somebody writes
  again in chat. Sounds can still be disabled, to just greet textually for first
  message in chat.
-Change: Fixed volume setting for sounds.
+- Change: Fixed volume setting for sounds.
 - Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
