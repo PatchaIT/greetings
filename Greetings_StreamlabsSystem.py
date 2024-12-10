@@ -2,19 +2,18 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 2.1
+# Version: 2.2
 # Description: Greet new viewers by playing a sound and/or a text
 #                   message when they write in chat for the first time
 #                   each session.
 #              Can also be used to play sounds when a user sends
 #                   additional messages.
-# Change: Fixed blocking no default for "Character series to swap"
-#           option when options were still not saved
-#         Fixed empty "Users not to greet + Blacklisted words" option
-#           was resulting like not greeting anybody at all
+# Change: Fixed issue with sometimes custom settings not correctly
+#           loaded
+#         Script should no more work on whispers
 # Services: Twitch, Youtube
 # Overlays: None
-# Update Date: 2023/10/21
+# Update Date: 2023/11/25
 #
 # Note: if you're updating for a previous 1.x version, new versions 2.x
 #       have no code retrocompatibility at all, so I suggest to:
@@ -66,6 +65,10 @@
 #           when options were still not saved
 #       Fixed empty "Users not to greet + Blacklisted words" option was
 #           resulting like not greeting anybody at all
+# 2023/11/25 v2.2 -
+#       Fixed issue with sometimes custom settings not correctly loaded
+#       Script should no more work on whispers
+#       Thanks Chidinma for testing!
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -80,7 +83,7 @@ clr.AddReference("IronPython.Modules.dll")
 # Add script's folder to path to be able to find the other modules
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 from tts_media_utils_106 import MediaDownloader
-from settings_utils_103 import Settings
+from settings_utils_104 import Settings
 from scripts_utils_101 import *
 
 
@@ -92,7 +95,7 @@ Website = "https://www.patcha.it"
 Description = "It greets viewers first time they write on chat and can also"\
                 " play sound for additional messages"
 Creator = "Patcha"
-Version = "2.1"
+Version = "2.2"
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -277,7 +280,8 @@ def Init():
 #   [Required] Execute Data / Process messages
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 def Execute(data):
-    if data.IsChatMessage() and not data.IsFromDiscord():
+    if data.IsChatMessage() and \
+            not data.IsFromDiscord() and not data.IsWhisper():
         user = data.UserName.lower()
         msg = data.GetParam(0).lower()
 
