@@ -2,7 +2,7 @@
 [![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![release](https://img.shields.io/github/v/release/PatchaIT/greetings)
-[![next](https://img.shields.io/badge/next-v2.0.1-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.1.0)
+[![next](https://img.shields.io/badge/next-v2.1.0-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.1.0)
 ___
 <h1 align="center">
 Greetings
