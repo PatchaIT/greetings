@@ -2,18 +2,19 @@
 # SHARED INFO:
 #
 # Script: Greetings
-# Version: 2.0
+# Version: 2.1
 # Description: Greet new viewers by playing a sound and/or a text
 #                   message when they write in chat for the first time
 #                   each session.
-#               Can also be used to play sounds when a user sends
+#              Can also be used to play sounds when a user sends
 #                   additional messages.
-# Change: TTS Functions restored
-#           (libraries reworked from LuisSanchezDev's TheNewTTS script)
-#        Customizations per user
+# Change: Fixed blocking no default for "Character series to swap"
+#           option when options were still not saved
+#         Fixed empty "Users not to greet + Blacklisted words" option
+#           was resulting like not greeting anybody at all
 # Services: Twitch, Youtube
 # Overlays: None
-# Update Date: 2023/10/02
+# Update Date: 2023/10/21
 #
 # Note: if you're updating for a previous 1.x version, new versions 2.x
 #       have no code retrocompatibility at all, so I suggest to:
@@ -60,7 +61,11 @@
 #       NOTE: There's no retrocompatibility with old 1.x versions
 #           You'll have to delete old versions first
 #           (while noting old settings)
-# 2023/10/02 v2.0.1 - Wrong default files into .zip distribution
+# 2023/10/21 v2.1 -
+#       Fixed blocking no default for "Character series to swap" option
+#           when options were still not saved
+#       Fixed empty "Users not to greet + Blacklisted words" option was
+#           resulting like not greeting anybody at all
 #
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -87,7 +92,7 @@ Website = "https://www.patcha.it"
 Description = "It greets viewers first time they write on chat and can also"\
                 " play sound for additional messages"
 Creator = "Patcha"
-Version = "2.0.1"
+Version = "2.1"
 
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -158,6 +163,7 @@ def Init():
         "tts_speed": 100,
         "tts_replaces": "_",
         "tts_case": "",
+        "tts_chars_swapping": "",
         "tts_clean_repeated_letters": True,
         "tts_confirm": "Configuration updated successfully",
         "tts_params": "",
@@ -397,10 +403,12 @@ def parse_black_listed_words(words):
 
 
 def is_black_listed_word(name, list):
-    comp = name.lower()
-    for words in list:
-        if all(word.lower() in comp for word in words):
-            return True
+    if (name and list and any(list)):
+        comp = name.lower()
+        for words in list:
+            if (words and any(word.strip() for word in words)):
+                if all(word.lower() in comp for word in words):
+                    return True
     return False
 
 
