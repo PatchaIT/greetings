@@ -1,34 +1,34 @@
 ﻿{
-    "output_file": "settings.json",
-    "BaseResponse": {
+    "output_file": "Settings/settings.json",
+    "base_response": {
         "type": "textbox",
         "value": "Hi {0}! HeyGuys",
         "label": "Greeting message for everyone",
         "tooltip": "Greeting message for everyone",
         "group": "General"
     },
-    "VIPResponse": {
+    "vip_response": {
         "type": "textbox",
-        "value": "Hi {0}! HeyGuys",
+        "value": "",
         "label": "Greeting message for VIP",
         "tooltip": "Greeting message for VIP",
         "group": "General"
     },
-    "SubResponse": {
+    "sub_response": {
         "type": "textbox",
-        "value": "Hi {0}! HeyGuys",
+        "value": "",
         "label": "Greeting message for subscribers",
         "tooltip": "Greeting message for subscribers",
         "group": "General"
     },
-    "ModResponse": {
+    "mod_response": {
         "type": "textbox",
-        "value": "Hi {0}! HeyGuys",
+        "value": "",
         "label": "Greeting message for moderators",
         "tooltip": "Greeting message for moderators",
         "group": "General"
     },
-    "InfoResponse": {
+    "info_response": {
         "type": "dropdown",
         "label": "Note that between these responses, the last overcomes others above. I.e. a subscribed moderator will have moderator message, while a subscribed VIP will have subscriber message. If any field is empty, the level above will be used, or everyone's message.",
         "value": "Ok, I got it!",
@@ -38,28 +38,35 @@
         ],
         "group": "General"
     },
-    "DoNotGreet": {
+    "tts_alias_list": {
         "type": "textbox",
-        "value": "",
-        "label": "Users not to greet",
-        "tooltip": "Users to not greet. Seperated through commas.",
-        "group": "Greeting sound"
+        "value": "User1:Alias1;User2:Alias2;User3:Alias3",
+        "label": "Alias to apply to users",
+        "tooltip": "You can set aliases for users, if you want them to be named differently. Expressed with 'User:Alias' couples separated by semicolon.\nNote: In those cases, blacklisted words check will be applied on aliases.",
+        "group": "General"
     },
-    "NoStartGreet": {
+    "no_start_greet": {
         "type": "textbox",
         "value": "",
         "label": "Don't greet messages starting by",
         "tooltip": "Messages starting this ways will not be greeted.",
-        "group": "Greeting sound"
+        "group": "General"
     },
-    "GreetWave": {
+    "do_not_greet": {
+        "type": "textbox",
+        "value": "",
+        "label": "Users not to greet + Blacklisted words",
+        "tooltip": "Users to not greet (like bots) and words you want to get filtered. Seperated through commas. Coupled through plus symbol.\nAll users containing this text, will not be greeted.",
+        "group": "General"
+    },
+    "greet_wave": {
         "type": "textbox",
         "value": "Hi.mp3",
         "label": "Greeting audio",
         "tooltip": "Greeting audio",
         "group": "Greeting sound"
     },
-    "GreetVolume": {
+    "greet_volume": {
         "type": "slider",
         "value": 100,
         "min": 0,
@@ -69,28 +76,14 @@
         "tooltip": "Volume to play greeting sound.",
         "group": "Greeting sound"
     },
-    "DoNotMsg": {
-        "type": "textbox",
-        "value": "",
-        "label": "Users not to check messages",
-        "tooltip": "Users to not check messages. Seperated through commas.",
-        "group": "Chat message sound"
-    },
-    "NoStartMsg": {
-        "type": "textbox",
-        "value": "!",
-        "label": "Ignore messages starting by",
-        "tooltip": "Messages starting this ways will be ignored.",
-        "group": "Chat message sound"
-    },
-    "MsgWave": {
+    "msg_wave": {
         "type": "textbox",
         "value": "Page_Turn.mp3",
         "label": "New message audio",
-        "tooltip": "Page_Turn.mp3",
+        "tooltip": "New message audio",
         "group": "Chat message sound"
     },
-    "MsgVolume": {
+    "msg_volume": {
         "type": "slider",
         "value": 100,
         "min": 0,
@@ -100,141 +93,200 @@
         "tooltip": "Volume to play new message sound.",
         "group": "Chat message sound"
     },
-     "TTSBot": {
-        "type": "hidden",
-        "old_type": "checkbox",
+    "no_start_msg": {
+        "type": "textbox",
+        "value": "!",
+        "label": "Ignore messages starting by",
+        "tooltip": "Messages starting this ways will be ignored.",
+        "group": "Chat message sound"
+    },
+    "do_not_msg": {
+        "type": "textbox",
+        "value": "",
+        "label": "Users not to check messages",
+        "tooltip": "Users to not check messages (like bots). Seperated through commas.\nOnly full usernames, no alias or blacklist words.",
+        "group": "Chat message sound"
+    },
+    "custom_greet": {
+        "type": "textbox",
+        "value": "\"Hi {0} first!\"\"Hello {0} second!\"\"Howdy {0} third!\"",
+        "label": "Text custom greetings collection",
+        "tooltip": "A series of greet messages, each surrounded by quotation marks.\nTo set a \"nothing\" option, just write two quotation marks with no text inside, like this \"\" .",
+        "group": "Customize per user"
+    },
+    "custom_audio": {
+        "type": "textbox",
+        "value": "\"Sound_1.mp3\"\"Sound_2.mp3\"\"Sound_3.mp3\"",
+        "label": "Audio custom greetings collection",
+        "tooltip": "A series of sound files, each surrounded by quotation marks.\nTo set a \"nothing\" option, just write two quotation marks with no text inside.",
+        "group": "Customize per user"
+    },
+    "custom_greet_tts": {
+        "type": "textbox",
+        "value": "\"TTS read this first!\"\"TTS read second\"\"\"",
+        "label": "TTS custom greetings collection",
+        "tooltip": "A series of sentences to be read by text to speach, each surrounded by quotation marks.\nTo set a \"nothing\" option, just write two quotation marks with no text inside, like this \"\" .",
+        "group": "Customize per user"
+    },
+    "custom_user": {
+        "type": "textbox",
+        "value": "\"FirstUser:3:2\"\"SecondUser:0:2:3\"\"ThirdUser:1:0:1\"",
+        "label": "Users assignment to custom greetings",
+        "tooltip": "This field allows to assign custom text, audio and TTS greetings to single users.\nGiven the sequence in previews three fields, the format is \"NickName:TextIndex:AudioIndex:TTSIndex\" surrounded by quotation marks.\n\nThe index of text, audio and TTS is given by their position, starting with 1 as first text, first audio or first TTS in the list, and so on for second (2), third (3)... while 0 or negative means no customization assigned = use default.\nZero or negative is optional for last values. It means \"NickName:1\" is like \"NickName:1:0:0\".\n\nNote: script's default settings nicknames are fictional, they don't actually mean the very first, second and third users chatting in your channel. They mean to be replaced with actual real nicknames from your community.",
+        "group": "Customize per user"
+    },
+    "tts_bot_on": {
+        "type": "checkbox",
         "value": false,
         "label": "Turn ON TTS Bot",
         "tooltip": "Do you wish a voice to read user's name.",
-        "group": "TTSBot"
+        "group": "TTS Configuration"
     },
-    "TTSBotVolume": {
-        "type": "hidden",
-        "old_type": "slider",
+    "tts_lang": {
+        "type": "dropdown",
+        "label": "TTS Language",
+        "value": "English (US) [en-US]",
+        "tooltip": "Change Language",
+        "items": [
+            "Arabic [ar-XA]",
+            "Czech (Czech Republic) [cs-CZ]ar",
+            "Danish (Denmark) [da-DK]",
+            "Dutch (Netherlands) [nl-NL]",
+            "English (Australia) [en-AU]",
+            "English (India) [en-IN]",
+            "English (UK) [en-GB]",
+            "English (US) [en-US]",
+            "Filipino (Philippines) [fil-PH]",
+            "Finnish (Finland) [fi-FI]",
+            "French (Canada) [fr-CA]",
+            "French (France) [fr-FR]",
+            "German (Germany) [de-DE]",
+            "Greek (Greece) [el-GR]",
+            "Hindi (India) [hi-IN]",
+            "Hungarian (Hungary) [hu-HU]",
+            "Indonesian (Indonesia) [id-ID]",
+            "Italian (Italy) [it-IT]",
+            "Japanese (Japan) [ja-JP]",
+            "Korean (South Korea) [ko-KR]",
+            "Mandarin Chinese [cmn-CN]",
+            "Norwegian (Norway) [nb-NO]",
+            "Polish (Poland) [pl-PL]",
+            "Portuguese (Brazil) [pt-BR]",
+            "Portuguese (Portugal) [pt-PT]",
+            "Russian (Russia) [ru-RU]",
+            "Slovak (Slovakia) [sk-SK]",
+            "Spanish (Spain) [es-ES]",
+            "Spanish (Latin America) [es-MX]",
+            "Swedish (Sweden) [sv-SE]",
+            "Turkish (Turkey) [tr-TR]",
+            "Ukrainian (Ukraine) [uk-UA]",
+            "Vietnamese (Vietnam) [vi-VN]"
+        ],
+        "group": "TTS Configuration"
+    },
+    "tts_volume_on": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Alter volume?",
+        "tooltip": "Alter volume of TTS generated file?",
+        "group": "TTS Configuration"
+    },
+    "tts_volume": {
+        "type": "slider",
+        "label": "TTS Volume",
+        "value": 90,
+        "min": 1,
+        "max": 100,
+        "ticks": 1,
+        "tooltip": "Change volume",
+        "group": "TTS Configuration"
+    },
+    "tts_pitch_on": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Alter pitch?",
+        "tooltip": "Alter pitch of TTS generated file?\nNote: Pitch will still influece speed final effect, if alter speed is enabled.",
+        "group": "TTS Configuration"
+    },
+    "tts_pitch": {
+        "type": "slider",
+        "label": "TTS % Pitch",
         "value": 100,
-        "min": 0,
-        "max": 100,
+        "min": 50,
+        "max": 150,
         "ticks": 1,
-        "label": "Audio Volume",
-        "tooltip": "Voice's volume to read user's name.",
-        "group": "TTSBot"
+        "tooltip": "Change default pitch of voice",
+        "group": "TTS Configuration"
     },
-   "TTSBlackListedWords": {
-        "type": "hidden",
-        "old_type": "textbox",
-        "value": "Nigger, Jew, Nazi, Nigga",
-        "label": "Black listed words",
-        "tooltip": "List of words you want to get filtered. Seperated through commas. Coupled through plus symbol.\r\nTTSBot will not read names containing those words.",
-        "group": "TTSBot"
+    "tts_speed_on": {
+        "type": "checkbox",
+        "value": true,
+        "label": "Alter speed?",
+        "tooltip": "Alter speed of TTS generated file?\nNote: Pitch value will also be involted, even if alter pitch is disabled.",
+        "group": "TTS Configuration"
     },
-    "TTSBotLanguage": {
-        "type": "hidden",
-        "old_type": "dropdown",
-        "label": "Bot Language",
-        "value": "US English Female",
-        "tooltip": "Which language should TTSBot interpretate?",
-        "items": [
-            "Chinese Female",
-            "Deutsch Female",
-            "Dutch Female",
-            "French Female",
-            "Italian Female",
-            "Japanese Female",
-            "Korean Female",
-            "Polish Female",
-            "Portuguese Female",
-            "Russian Female",
-            "Spanish Female",
-            "Swedish Female",
-            "Turkish Female",
-            "UK English Female",
-            "US English Female"
-        ],
-        "group": "TTSBot"
-    },
-   "TTSBotKey": {
-        "type": "hidden",
-        "old_type": "textbox",
-        "value": "",
-        "label": "Generated Key",
-        "tooltip": "Write here TTS Bot Key you got from clicking button below.",
-        "group": "TTSBot User"
-    },
-   "TTSBotUser": {
-        "type": "hidden",
-        "old_type": "textbox",
-        "value": "",
-        "label": "Custom user (optional)",
-        "tooltip": "Fill this if you wanna link TTSBot to a different user, then click button below.\r\nEmpty = default Channel Name",
-        "group": "TTSBot User"
-    },
-    "TTSWhisperNewKey": {
-        "type": "hidden",
-        "old_type": "button",
-        "label": "Get Browser Source URL",
-        "tooltip": "Your bot will whisper you the BrowserSource URL. Be sure to use a different user as streamer Bot!",
-        "function": "GenerateAndWhisperTTSBotKey",
-        "wsevent": "",
-        "group": "TTSBot User"
-    },
-    "TTSOverlayFont": {
-        "type": "hidden",
-        "old_type": "dropdown",
-        "label": "Overlay Google font",
-        "value": "Roboto",
-        "tooltip": "Which google font should be used?",
-        "items": [
-            "Roboto",
-            "Open Sans",
-            "Lato",
-            "Slabo 27px",
-            "Oswald",
-            "Source Sans Pro",
-            "Montserrat",
-            "Raleway",
-            "PT Sans",
-            "Lora",
-            "Noto Sans",
-            "Nunito Sans",
-            "Concert One",
-            "Prompt",
-            "Work Sans"
-        ],
-        "group": "TTSBot Overlay Style"
-    },
-    "TTSOverlayFontSize": {
-        "type": "hidden",
-        "old_type": "slider",
-        "value": 32,
-        "min": 0,
-        "max": 100,
+    "tts_speed": {
+        "type": "slider",
+        "label": "TTS % Speed",
+        "value": 100,
+        "min": 75,
+        "max": 250,
         "ticks": 1,
-        "label": "Overlay font size",
-        "tooltip": "TTSBot overlay font size.",
-        "group": "TTSBot Overlay Style"
+        "tooltip": "Change default speed of voice",
+        "group": "TTS Configuration"
     },
-    "TTSOverlayFontColor": {
-        "type": "hidden",
-        "old_type": "colorpicker",
-        "label": "Overlay font color",
-        "value": "rgba(4,118,189,1)",
-        "tooltip": "TTSBot overlay font color.",
-        "group": "TTSBot Overlay Style"
+    "tts_case": {
+        "type": "dropdown",
+        "label": "Force lower or upper case",
+        "value": "",
+        "tooltip": "Set this if you want TTS to read lowercase (could avoid acronyms reading on uppercase words) or uppercase (could read words as acronym).",
+        "items": [
+            "",
+            "Lower",
+            "Upper"
+        ],
+        "group": "TTS Configuration"
     },
-    "TTSOverlayBorderColor": {
-        "type": "hidden",
-        "old_type": "colorpicker",
-        "label": "Overlay border color",
-        "value": "rgba(0,0,0,1)",
-        "tooltip": "TTSBot overlay border color.",
-        "group": "TTSBot Overlay Style"
+    "tts_chars_swapping": {
+        "type": "textbox",
+        "value": "Chars1:Swaps1;Chars2:Swaps2;Chars3:Swaps3",
+        "label": "Character series to swap",
+        "tooltip": "Swaps series of characters with another series, if you want them to be spelled differently. Expressed with 'Chars:Swaps' couples separated by semicolon.\nNote: at the contrary of aliases, as for the option above, this option is case sensitive but swaps also partial words, so it could be invasive and create oddities. Be sure to use the most rich series of characters possible.",
+        "group": "TTS Configuration"
     },
-    "TTSOverlayBackgroundColor": {
-        "type": "hidden",
-        "old_type": "colorpicker",
-        "label": "Overlay background color",
-        "value": "rgba(0,255,0,1)",
-        "tooltip": "TTSBot overlay background color.",
-        "group": "TTSBot Overlay Style"
+    "tts_replaces": {
+        "type": "textbox",
+        "value": "_",
+        "label": "Replace these with spaces",
+        "tooltip": "For each character in here, replaces each occurrence of it with a white space, so TTS will not read them literally.",
+        "group": "TTS Configuration"
+    },
+    "tts_confirm": {
+        "type": "textbox",
+        "value": "Configuration updated successfully",
+        "label": "Settings update confirmation",
+        "tooltip": "TTS will say this sentence to confirm settings are updated successfully.",
+        "group": "TTS Configuration"
+    },
+    "tts_params": {
+        "type": "textbox",
+        "value": "\"i.e. this will replace {2}\"\"This will replace {3}\"",
+        "label": "Custom parameters",
+        "tooltip": "These parameters will fill the webservice call, replacing in order {2}, {3} and so on.\nThey have to be enclosed in quotation marks.\n{0} and {1} are not included because they'll be {0} = text to read and {1} = lang.\nIf your webservice lang format is different than default (i.e not: 'en-GB', 'fil-PH', 'it-IT') you can set it as custom parameter.",
+        "group": "TTS Server"
+    },
+    "tts_webservice": {
+        "type": "textbox",
+        "value": "https://translate.google.com/translate_tts?ie=UTF-8&tl={1}&client=tw-ob&q={0}",
+        "label": "Webservice",
+        "tooltip": "The webservice to be called for TTS services. {0}, {1} and so on will be replaced by parameters, in order, as for previous field.",
+        "group": "TTS Server"
+    },
+    "tts_audio_format": {
+        "type": "textbox",
+        "value": ".mp3",
+        "label": "Audio format",
+        "tooltip": "Audio file extention generated by TTS service.",
+        "group": "TTS Server"
     }
 }
