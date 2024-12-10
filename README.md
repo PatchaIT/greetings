@@ -2,7 +2,7 @@
 [![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![release](https://img.shields.io/github/v/release/PatchaIT/greetings)
-[![next](https://img.shields.io/badge/next-v2.1.0-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.1.0)
+[![next](https://img.shields.io/badge/next-v2.2.0-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.2.0)
 ___
 <h1 align="center">
 Greetings
@@ -90,17 +90,18 @@ Note for Save Settings:
 ## In Shorts
 
 - Script: Greetings
-- Version: 2.0.1
+- Version: 2.1.0
 - Description: Greet new viewers by playing a sound and/or a text
       message when they write in chat for the first time each session.
     Can also be used to play sounds when users send additional messages.
-- Change: TTS Functions restored
-      (libraries reworked from LuisSanchezDev's TheNewTTS script);
-    Customizations per user
+- Change: Fixed blocking no default for "Character series to swap"
+      option when options were still not saved;
+    Fixed empty "Users not to greet + Blacklisted words" option
+      was resulting like not greeting anybody at all
 - Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
-- Update Date: 2023/10/02
+- Update Date: 2023/10/21
 
 ## Changelog
 
@@ -149,6 +150,11 @@ Note for Save Settings:
         (while noting old settings)
 - 2023/10/02 v2.0.1
   - Wrong default files into .zip distribution
+- 2023/10/21 v2.1.0
+  - Fixed blocking no default for `Character series to swap` option
+        when options were still not saved
+  - Fixed empty `Users not to greet + Blacklisted words` option was
+        resulting like not greeting anybody at all
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)

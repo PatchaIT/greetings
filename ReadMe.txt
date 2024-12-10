@@ -47,17 +47,18 @@ Note for Save Settings:
 ## In Shorts
 
 - Script: Greetings
-- Version: 2.0.1
+- Version: 2.1.0
 - Description: Greet new viewers by playing a sound and/or a text
       message when they write in chat for the first time each session.
     Can also be used to play sounds when users send additional messages.
-- Change: TTS Functions restored
-      (libraries reworked from LuisSanchezDev's TheNewTTS script);
-    Customizations per user
+- Change: Fixed blocking no default for "Character series to swap"
+      option when options were still not saved;
+    Fixed empty "Users not to greet + Blacklisted words" option
+      was resulting like not greeting anybody at all
 - Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
-- Update Date: 2023/10/02
+- Update Date: 2023/10/21
 
 ## Changelog
 
@@ -106,6 +107,11 @@ Note for Save Settings:
         (while noting old settings)
 - 2023/10/02 v2.0.1
   - Wrong default files into .zip distribution
+- 2023/10/21 v2.1.0
+  - Fixed blocking no default for `Character series to swap` option
+        when options were still not saved
+  - Fixed empty `Users not to greet + Blacklisted words` option was
+        resulting like not greeting anybody at all
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)
