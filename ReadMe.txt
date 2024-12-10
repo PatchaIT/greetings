@@ -47,7 +47,7 @@ Note for Save Settings:
 ## In Shorts
 
 - Script: Greetings
-- Version: 2.0.0
+- Version: 2.0.1
 - Description: Greet new viewers by playing a sound and/or a text
       message when they write in chat for the first time each session.
     Can also be used to play sounds when users send additional messages.
@@ -104,6 +104,8 @@ Note for Save Settings:
   - NOTE: There's no retrocompatibility with old 1.x versions
       You'll have to delete old versions first
         (while noting old settings)
+- 2023/10/02 v2.0.1
+  - Wrong default files into .zip distribution
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)
