@@ -1,8 +1,8 @@
-[![development status | 7 - Inactive](https://img.shields.io/badge/development_status-7_--_Inactive-orange)](https://pypi.org/classifiers/)
+[![development status | 5 - Production](https://img.shields.io/badge/Development_Status-5_--_Production-green)](https://pypi.org/classifiers/)
 [![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![release](https://img.shields.io/github/v/release/PatchaIT/greetings)
-[![next](https://img.shields.io/badge/next-v2.2.0-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.2.0)
+<!--[![next](https://img.shields.io/badge/next-v2.2.0-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.2.0)-->
 ___
 <h1 align="center">
 Greetings
@@ -90,18 +90,17 @@ Note for Save Settings:
 ## In Shorts
 
 - Script: Greetings
-- Version: 2.1.0
+- Version: 2.2.0
 - Description: Greet new viewers by playing a sound and/or a text
       message when they write in chat for the first time each session.
     Can also be used to play sounds when users send additional messages.
-- Change: Fixed blocking no default for "Character series to swap"
-      option when options were still not saved;
-    Fixed empty "Users not to greet + Blacklisted words" option
-      was resulting like not greeting anybody at all
+- Change: Fixed issue with sometimes custom settings not correctly
+      loaded
+    Script should no more work on whispers
 - Services: Twitch, Youtube
 - Overlays: None
 - Made By: @Patcha_it
-- Update Date: 2023/10/21
+- Update Date: 2023/11/25
 
 ## Changelog
 
@@ -155,6 +154,10 @@ Note for Save Settings:
         when options were still not saved
   - Fixed empty `Users not to greet + Blacklisted words` option was
         resulting like not greeting anybody at all
+- 2023/11/25 v2.2.0
+  - Fixed issue with sometimes custom settings not correctly loaded
+  - Script should no more work on whispers
+  - Thanks Chidinma for testing!
 
 PS:
 Thanks @Castorr91 for some fixes suggestion. ;)
