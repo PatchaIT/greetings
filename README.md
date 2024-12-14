@@ -87,7 +87,7 @@ Note for Save Settings:
 ## In Shorts
 
 * Script: Greetings
-* Version: 1.1.1-SNAPSHOT
+* Version: 2.2.1-SNAPSHOT
 * Description: It greets new viewers by playing a sound and/or a text
       message when they sends their first message in chat for the first
       time each session.
@@ -156,7 +156,7 @@ Note for Save Settings:
   * Fixed issue with sometimes custom settings not correctly loaded
   * Script should no more work on whispers
   * Thanks Chidinma for testing!
-* 2025/xx/xx v1.1.1 - SNAPSHOT
+* 2025/xx/xx v2.2.1 - SNAPSHOT
   * Final fixing issue with sometimes custom settings not correctly loaded
   * Possibility to manually set channel/streamer name
 
