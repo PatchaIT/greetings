@@ -4,7 +4,7 @@
 [![code style: pep-008](https://img.shields.io/badge/code_style-pep--0008-FFF8FF)](https://peps.python.org/pep-0008/)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![release](https://img.shields.io/github/v/release/PatchaIT/greetings)
-[![next](https://img.shields.io/badge/next-v2.2.1-yellow)](https://github.com/PatchaIT/TheRenewTTS/tree/greetings_v2.2.1)
+[![next](https://img.shields.io/badge/next-v2.2.1-yellow)](https://github.com/PatchaIT/greetings/tree/greetings_v2.2.1)
 
 (On your Streamlabs Chatbot) Greets new viewers by playing a sound and/or a
     text message when they sends their first message in chat for the first
