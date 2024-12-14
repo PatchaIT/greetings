@@ -182,7 +182,9 @@ Follow this tutorial to prepare your Streamlabs Chatbot installation to accept
 2. If you haven't already, open your Streamlabs Chatbot and log in to your
   Streamer and Bot accounts.
 3. On the left side, wait for the `Scripts` tab to pop up and click it.
-4. On the top right corner of the window, next to the reload button is an import script button (Arrow pointing right to a box) and select the script downloaded before.
+4. On the top right corner of the window, next to the reload button is an
+  import script button (Arrow pointing right to a box) and select the script
+  downloaded before.
 5. You will receive a message box confirming the import, accept it.
 6. The window will update and show the `Greetings` script.
 7. Click on the `Greetings` name to see the configuration pane.
